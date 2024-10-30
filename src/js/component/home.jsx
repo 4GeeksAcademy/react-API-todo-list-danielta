@@ -11,6 +11,12 @@ const Home = () => {
 	const [user, setUser] = useState("")
 	const [password, setPassword] = useState("")
 	const [loggedIn, setLoggedIn] = useState(false)
+	const [registeredUsers, setRegisteredUsers] = useState([
+		{user: "Daniel", password: "1234"}, 
+		{user: "George", password: "5678"}, 
+		{user: "Derek", password: "password"}, 
+		{user: "Marjorie", password: "passphrase"}
+	])
 
 	const addItem = (newItem) => {
 		setTaskList([...taskList, newItem]);
@@ -43,7 +49,7 @@ const Home = () => {
 					</div>
 				</div>
 				:
-				<Login user={user} setUser={setUser} password={password} setPassword={setPassword} loggedIn={loggedIn} setLoggedIn={setLoggedIn} />
+				<Login user={user} setUser={setUser} password={password} setPassword={setPassword} loggedIn={loggedIn} setLoggedIn={setLoggedIn} registeredUsers={registeredUsers} setRegisteredUsers={setRegisteredUsers}/>
 			}</div>
 	);
 };
