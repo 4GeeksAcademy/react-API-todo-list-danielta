@@ -1,12 +1,89 @@
 
-/* 
+body {
+    background: black;
+}
+h1 {
+    margin: auto;
+    font-size: 150px;
+    font-weight: 50;
+    color:white
+}
 
-    You can write your own styles here...
-    
-    
-    ...Or you can use the import command to include 
-    other sylesheets into your bunde as well, e.j:
-    
-    import 'relative/path/to/stylesheet.scss';
+.page {
+    display: block;
+    text-align: center;
+}
+#toDoList {
+    margin: auto;
+    width: 40vw;
+}
+#addLine {
+    display:flex;
+    justify-content: space-between;
+    width: 48vw;
+    height: 8vh;
+    font-size: 45px;
+    border: 1px solid rgb(209, 208, 205);
+    align-items: center;
+}
+#addButton {
+    color:black;
+    height: 8vh;
+    width: 8vw;
+    font-size: 40px;
+    text-align:center;
+    display: flex;
+    padding-left: 3px;
+    padding-right:5px;
+    padding-top: 0px;
+    padding-bottom: 5px;
+}
+#inputField {
+    width: 40vw;
+    height: 8vh;
+}
+#item {
+    width: 48vw;
+    height: 8vh;
+    border: 1px solid rgb(15, 14, 14);
+    font-size: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: blue;
+    background: rgb(211, 206, 206)
+}
+#itemCounter {
+    width: 48vw;
+    height: 8vh;
+    border: 1px solid rgb(15, 14, 14);
+    font-size: 25px;
+    align-items:center;
+    display: flex;
+    color: rgb(104, 243, 106);
+    background: rgb(158, 144, 144)
+}
+.X:hover {
+    display:flex;
+    font-size: 40px;
+    align-items: center;
+    height: 8vh;
+    color: red;
+    background-color: rgb (211, 206, 206);
+    padding-right: 10px
+}
+.X {
+    color: rgb(211, 206, 206)
+}
+#portal {
+    padding-top: 40vh;
+    display:grid;
+    margin:auto;
+    width: 20vw;
+}
+#submit {
 
-*/
+}
+.credentials {
+    color:red;
+}
