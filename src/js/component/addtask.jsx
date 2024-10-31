@@ -4,15 +4,25 @@ import React from "react";
 
 const AddTask = (props) => {
 
-    const removeTask = (index) => {
-        var newList=props.taskList.filter((element, index2) => index2 != index)
-        props.setTaskList(newList)
-    }
+    const removeTask = (id) => {
+        fetch(`https://playground.4geeks.com/todo/todos/${id}`, {
+            method: 'DELETE'
+        })
+            .then(res => {
+                if (!res.ok) throw Error(res.statusText);
+                return res.json();
+            })
+            .then(response => console.log(response))
+            .catch(error => console.error(error));
+    };
 
     return (
         <div id="item">
-            <div>{props.task}</div>
-            <span className="X btn" onClick={()=>removeTask(props.index)}>X</span>
+            <div>{props.task.label}</div>
+            <span className="X btn" onClick={() => {
+                removeTask(props.id);
+                props.getFetch()
+            }}>X</span>
         </div>
     )
 }

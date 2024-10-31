@@ -29,7 +29,7 @@ const Login = (props) => {
             <span id="submit" className="btn btn-primary" onClick={() => {
                 verify()
             }}>Login</span>
-            <span className="credentials">Usernames are Daniel, George, Derek, Marjorie </span>
+            <span className="credentials">Usernames are danielta, George, Derek, Marjorie </span>
             <span className="credentials">Passwords are 1234, 5678, password, passphrase</span>
         </div>
     )
