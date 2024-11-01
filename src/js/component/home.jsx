@@ -10,7 +10,7 @@ const Home = () => {
 	const [createTask, setCreateTask] = useState("")
 	const [user, setUser] = useState("")
 	const [password, setPassword] = useState("")
-	const [loggedIn, setLoggedIn] = useState(false)
+	const [loggedIn, setLoggedIn] = useState(true)
 	const [registeredUsers, setRegisteredUsers] = useState([
 		{ user: "danielta", password: "1234" },
 		{ user: "George", password: "5678" },
@@ -73,7 +73,7 @@ const Home = () => {
 							}}>Add</span>
 						</div>
 						<List taskList={taskList} setTaskList={setTaskList} getFetch={getFetch} />
-						<div id="itemCounter">{taskList.length === 0 ? "No tasks in list" : `${taskList.length} items left`}</div>
+						<div id="itemCounter">{taskList && taskList.length !== 0 ? `${taskList.length} items left` : "No tasks in list"}</div>
 					</div>
 				</div>
 				:

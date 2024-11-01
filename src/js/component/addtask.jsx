@@ -10,9 +10,9 @@ const AddTask = (props) => {
         })
             .then(res => {
                 if (!res.ok) throw Error(res.statusText);
-                return res.json();
+                console.log(res);
+                props.getFetch();
             })
-            .then(response => console.log(response))
             .catch(error => console.error(error));
     };
 
@@ -21,7 +21,6 @@ const AddTask = (props) => {
             <div>{props.task.label}</div>
             <span className="X btn" onClick={() => {
                 removeTask(props.id);
-                props.getFetch()
             }}>X</span>
         </div>
     )
