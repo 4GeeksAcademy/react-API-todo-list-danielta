@@ -7,20 +7,20 @@ import Login from "./loginpage";
 //create your first component
 const Home = () => {
 	const [taskList, setTaskList] = useState([])
+	const [show, setShow] = useState("all");
 	const [createTask, setCreateTask] = useState("")
 	const [user, setUser] = useState("")
 	const [password, setPassword] = useState("")
-	const [loggedIn, setLoggedIn] = useState(true)
+	const [loggedUser, setLoggedUser] = useState("danielta")
 	const [registeredUsers, setRegisteredUsers] = useState([
 		{ user: "danielta", password: "1234" },
-		{ user: "George", password: "5678" },
-		{ user: "Derek", password: "password" },
-		{ user: "Marjorie", password: "passphrase" }
+		{ user: "chuck-bob", password: "5678" },
+		{ user: "redando_d", password: "password" },
+		{ user: "marjorie", password: "passphrase" }
 	])
 
-
 	const getFetch = () => {
-		fetch("https://playground.4geeks.com/todo/users/danielta")
+		fetch(`https://playground.4geeks.com/todo/users/${loggedUser}`)
 			.then((res) => res.json())
 			.then((response) => setTaskList(response.todos))
 			.catch((err) => console.log(err))
@@ -28,7 +28,7 @@ const Home = () => {
 
 
 	const addItem = (newItem) => {
-		fetch('https://playground.4geeks.com/todo/todos/danielta', {
+		fetch(`https://playground.4geeks.com/todo/todos/${loggedUser}`, {
 			method: 'POST',
 			body: JSON.stringify(
 				{
@@ -48,9 +48,10 @@ const Home = () => {
 			.catch(error => console.error(error));
 	};
 
+
 	return (
 		<div>
-			{loggedIn == true ?
+			{loggedUser ?
 				<div className="page">
 					<h1>todos</h1>
 					<div id="toDoList">
@@ -72,12 +73,16 @@ const Home = () => {
 								}
 							}}>Add</span>
 						</div>
-						<List taskList={taskList} setTaskList={setTaskList} getFetch={getFetch} />
-						<div id="itemCounter">{taskList && taskList.length !== 0 ? `${taskList.length} items left` : "No tasks in list"}</div>
+						<List taskList={taskList} show={show} setTaskList={setTaskList} getFetch={getFetch} />
+						<div id="bottomLine">
+							<div id="itemCounter">{taskList && taskList.length !== 0 ? `${taskList.length} items left` : "No tasks in list"}</div>
+							<button id="filterBtn" type="button" className="btn btn-primary"
+								onClick={() => setShow(show == "all" ? "complete" : "all")}>{show == "all" ? "Show only incomplete" : "Show all"}</button>
+						</div>
 					</div>
 				</div>
 				:
-				<Login user={user} setUser={setUser} password={password} setPassword={setPassword} loggedIn={loggedIn} setLoggedIn={setLoggedIn} registeredUsers={registeredUsers} setRegisteredUsers={setRegisteredUsers} taskList={taskList} setTaskList={setTaskList} />
+				<Login user={user} setUser={setUser} password={password} setPassword={setPassword} loggedUser={loggedUser} setLoggedUser={setLoggedUser} registeredUsers={registeredUsers} setRegisteredUsers={setRegisteredUsers} taskList={taskList} setTaskList={setTaskList} />
 			}</div>
 	);
 };

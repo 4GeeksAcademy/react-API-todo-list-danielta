@@ -40,7 +40,7 @@ h1 {
 }
 #inputField {
     width: 40vw;
-    height: 8vh;
+    height: 8vh
 }
 #item {
     width: 48vw;
@@ -49,30 +49,52 @@ h1 {
     font-size: 45px;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    /* justify-content:space-between; */
     color: blue;
     background: rgb(211, 206, 206)
 }
-#itemCounter {
+#label {
+    width: 33vw;
+    text-align: start;
+    padding-left: 1vw;
+}
+#complete {
+    width: 9vw;
+}
+.completed {
+    font-size: 20px;
+    color:rgb(48, 176, 48);
+}
+#bottomLine {
     width: 48vw;
     height: 8vh;
     border: 1px solid rgb(15, 14, 14);
     font-size: 25px;
     align-items:center;
     display: flex;
+    background: rgb(158, 144, 144);
+    justify-content: space-between;
+}
+#itemCounter {
     color: rgb(104, 243, 106);
-    background: rgb(158, 144, 144)
+    padding-left: 1vw;
+}
+#filterBtn {
+    margin-right: 2vw;
 }
 .X:hover {
     display:flex;
     font-size: 40px;
     align-items: center;
     height: 8vh;
+    width:3vw;
     color: red;
     background-color: rgb (211, 206, 206);
     padding-right: 10px
 }
 .X {
+    padding-left:2vw;
+    width: 3vw;
     color: rgb(211, 206, 206)
 }
 #portal {

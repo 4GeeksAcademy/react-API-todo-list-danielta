@@ -7,7 +7,7 @@ const Login = (props) => {
 
     const verify = () => {
         if (props.registeredUsers.find((regUser) => regUser.user == props.user && regUser.password == props.password)) {
-            props.setLoggedIn(true)
+            props.setLoggedUser(props.user)
         } else {
             alert("username or password incorrect")
         }
@@ -29,7 +29,7 @@ const Login = (props) => {
             <span id="submit" className="btn btn-primary" onClick={() => {
                 verify()
             }}>Login</span>
-            <span className="credentials">Usernames are danielta, George, Derek, Marjorie </span>
+            <span className="credentials">Usernames are danielta, chuck-bob, redando_d, Nateh1304 </span>
             <span className="credentials">Passwords are 1234, 5678, password, passphrase</span>
         </div>
     )
